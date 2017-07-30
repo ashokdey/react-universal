@@ -12,7 +12,7 @@ store.subscribe(() => {
     // capture the price of second book 
     console.log('Current price of second book is : ', store.getState().books.books[1].price);    
     // capture title of second book
-    console.log('Current price of second book is : ', store.getState().books.books[1].title);    
+    console.log('Title of second book is : ', store.getState().books.books[1].title);    
 });
 
 //  STEP 2 : Create and Dispatch Actions 
@@ -63,4 +63,12 @@ store.dispatch({
         id: 1003,
         title: 'Updated to Fantastic Book'
     }
+});
+
+// CART Actions
+
+// Add to cart
+store.dispatch({
+    type: 'ADD_TO_CART',
+    payload: [{id: 1002}]
 });
