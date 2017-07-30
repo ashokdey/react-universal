@@ -1,6 +1,8 @@
 'use strict';
 
-const reducer = (state = {books: []}, action) => {
+// Book reducers
+
+export default function bookReducers (state = {books: []}, action) {
     
     switch(action.type) {
         case 'POST_BOOK':  
