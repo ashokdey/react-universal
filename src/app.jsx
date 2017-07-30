@@ -3,6 +3,9 @@ import {createStore} from 'redux';
 // Import the combined reducers
 import reducers from './reducers';
 
+// import actions 
+import {addToCart} from './actions/cartActions'
+
 
 // STEP 1 : Create the store
 const store = createStore(reducers);
@@ -68,7 +71,4 @@ store.dispatch({
 // CART Actions
 
 // Add to cart
-store.dispatch({
-    type: 'ADD_TO_CART',
-    payload: [{id: 1002}]
-});
+store.dispatch(addToCart([{id: 1001}]));
