@@ -13,6 +13,7 @@ class BookList extends React.Component {
                 <h1>{book.title}</h1>
                 <h2>{book.description}</h2>
                 <h2>{book.price}</h2>
+                <hr/>
             </div>
         ));
 
