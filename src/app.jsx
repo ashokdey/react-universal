@@ -4,7 +4,8 @@ import {createStore} from 'redux';
 import reducers from './reducers';
 
 // import actions 
-import {addToCart} from './actions/cartActions'
+import {addToCart} from './actions/cartActions';
+import {postBook, deleteBook, updateBook} from './actions/bookActions';
 
 
 // STEP 1 : Create the store
@@ -22,9 +23,7 @@ store.subscribe(() => {
 
 // Dispatching an object similar to a database record 
 // In real applications, there is generally  an array of objects in the payload
-store.dispatch({
-    type: 'POST_BOOK',
-    payload: [{
+store.dispatch(postBook([{
         id: 1001,
         title: 'Some Boook',
         description: 'A great demo book',
@@ -36,37 +35,31 @@ store.dispatch({
         description: 'A second great demo book',
         price: 13.33
     }]
-});
+));
 
 // Trying CRUD in Redux with a similar dispatch Action
 
 // Creating a book
-store.dispatch({
-    type: 'POST_BOOK',
-    payload: [{
+store.dispatch(postBook([{
         id: 1003,
         title: 'Third Book',
         description: 'Third Demo Book',
         price: 68.85
     }]
-});
+));
 
 // Deleting a book
-store.dispatch({
-    type: 'DELETE_BOOK',
-    payload: {
+store.dispatch(deleteBook([{
         id: 1001
-    }
-});
+    }]
+));
 
 // Updating  a book 
-store.dispatch({
-    type: 'UPDATE_BOOK',
-    payload: {
+store.dispatch(updateBook([{
         id: 1003,
         title: 'Updated to Fantastic Book'
-    }
-});
+    }]
+));
 
 // CART Actions
 
