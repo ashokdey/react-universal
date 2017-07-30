@@ -1,4 +1,7 @@
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
+
+//  import redux-logger
+import logger from 'redux-logger';
 
 // Import the combined reducers
 import reducers from './reducers';
@@ -9,7 +12,7 @@ import {postBook, deleteBook, updateBook} from './actions/bookActions';
 
 
 // STEP 1 : Create the store
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(logger));
 
 store.subscribe(() => {
     console.log('Current state is : ', store.getState());
