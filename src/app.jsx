@@ -4,7 +4,7 @@ import {createStore} from 'redux';
 const reducer = (state = {books: []}, action) => {
     
     switch(action.type) {
-        case 'POST_BOOK' :  
+        case 'POST_BOOK':  
             // add the new   book in the state.  
             // Never  use push()methodbecause it is mutable
             // we shouldnevermutate the state in redux 
@@ -12,6 +12,16 @@ const reducer = (state = {books: []}, action) => {
             // we can also use the spread operator which creates copies
             return {books: [...state.books, ...action.payload]};
         break;
+
+        case  'DELETE_BOOK':
+            // creating a copy  of the current book array 
+            const bookToDelete = [...state.books];
+            // determine the index of the book to be deleted
+            const bookIndex = bookToDelete.findIndex((book) => book.id == action.payload.id);
+            // use slice to remove the book at the specified index
+            return {books:[...bookToDelete.slice(0, bookIndex), ...bookToDelete.slice(bookIndex + 1)]} 
+
+        break; 
     }
 
     return state;
@@ -50,6 +60,7 @@ store.dispatch({
 
 // Trying CRUD in Redux with a similar dispatch Action
 
+// Creating a book
 store.dispatch({
     type: 'POST_BOOK',
     payload: [{
@@ -58,4 +69,12 @@ store.dispatch({
         description: 'Third Demo Book',
         price: 68.85
     }]
+});
+
+// Deleting a book
+store.dispatch({
+    type: 'DELETE_BOOK',
+    payload: {
+        id: 1001
+    }
 });
