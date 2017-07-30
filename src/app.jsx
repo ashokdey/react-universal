@@ -11,6 +11,7 @@ import {addToCart} from './actions/cartActions';
 import {postBook, deleteBook, updateBook} from './actions/bookActions';
 
 
+
 // Create the store
 const store = createStore(reducers, applyMiddleware(logger));
 
@@ -21,6 +22,13 @@ store.subscribe(() => {
     // capture title of second book
     console.log('Title of second book is : ', store.getState().books.books[1].title);    
 });
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import BookList from './components/pages/BookList.jsx';
+
+ReactDOM.render(<BookList />, document.getElementById('app'));
+
 
 // Create and Dispatch Actions 
 
