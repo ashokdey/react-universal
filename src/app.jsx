@@ -11,7 +11,7 @@ import {addToCart} from './actions/cartActions';
 import {postBook, deleteBook, updateBook} from './actions/bookActions';
 
 
-// STEP 1 : Create the store
+// Create the store
 const store = createStore(reducers, applyMiddleware(logger));
 
 store.subscribe(() => {
@@ -22,7 +22,7 @@ store.subscribe(() => {
     console.log('Title of second book is : ', store.getState().books.books[1].title);    
 });
 
-//  STEP 2 : Create and Dispatch Actions 
+// Create and Dispatch Actions 
 
 // Dispatching an object similar to a database record 
 // In real applications, there is generally  an array of objects in the payload
