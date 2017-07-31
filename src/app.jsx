@@ -19,6 +19,7 @@ import {Provider} from 'react-redux';
 // custom components
 import BookList from 'BookList';
 import Navigation from 'Navigation';
+import Footer from 'Footer';
 
 
 // Create the store
