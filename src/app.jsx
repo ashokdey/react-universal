@@ -15,8 +15,10 @@ import {postBook, deleteBook, updateBook} from 'bookActions';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import BookList from './components/pages/BookList.jsx';
 
+// custom components
+import BookList from './components/pages/BookList.jsx';
+import Navigation from './components/Navigation.jsx';
 
 
 // Create the store
@@ -35,7 +37,10 @@ store.subscribe(() => {
 
 ReactDOM.render(
     <Provider store={store}>
-        <BookList />
+        <div>
+            <Navigation />
+            <BookList />
+        </div>
     </Provider>, 
 document.getElementById('app'));
 
