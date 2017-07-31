@@ -20,8 +20,10 @@ class Cart extends Component {
     }
 
     // custom method to handle decreament of items in the cart 
-    _decreaseQuantity(_id){
-        this.props.updateCart(_id, -1);
+    _decreaseQuantity(_id, quantity){
+        if(quantity > 1) {
+            this.props.updateCart(_id, -1);        
+        }
     }
 
     // custom method to handle deletion of items from the cart 
@@ -65,7 +67,7 @@ class Cart extends Component {
                     </Col>
                     <Col xs={6} sm={4}>
                         <ButtonGroup style={{width: '300px'}}>
-                            <Button onClick={this._decreaseQuantity.bind(this, item._id)} bsStyle="warning" bsSize="small">-</Button>
+                            <Button onClick={this._decreaseQuantity.bind(this, item._id, item.quantity)} bsStyle="warning" bsSize="small">-</Button>
                             <Button onClick={this._increaseQuantity.bind(this, item._id)} bsStyle="primary" bsSize="small">+</Button>
                             <span>     </span>
                             <Button onClick={this._handleDelete.bind(this, item._id)} bsStyle="danger" bsSize="small">Delete</Button>
