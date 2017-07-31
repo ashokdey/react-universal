@@ -2,9 +2,24 @@
 
 // Book reducers
 
-export default function bookReducers (state = {books: []}, action) {
+export default function bookReducers (state = {books: [{
+        id: 1001,
+        title: 'Some Boook',
+        description: 'A great demo book',
+        price: 33.33
+    },
+    {
+        id: 1002,
+        title: 'Some Other Boook',
+        description: 'A second great demo book',
+        price: 13.33
+    }]}, action) {
     
     switch(action.type) {
+        case 'GET_BOOKS':
+            return {...state, books: [...state.books]}
+        break;
+
         case 'POST_BOOK':  
             // add the new   book in the state.  
             // Never  use push()methodbecause it is mutable

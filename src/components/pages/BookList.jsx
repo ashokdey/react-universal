@@ -4,8 +4,15 @@ import React from 'react';
  * store and makeit available in our local component 
  */
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getBooks} from '../../actions/bookActions'
 
 class BookList extends React.Component {
+
+    componentDidMount() {
+        // Dispatching an Action
+        this.props.getBooks();
+    }
 
     render() {
         const bookList = this.props.books.map((book) => (
@@ -20,6 +27,7 @@ class BookList extends React.Component {
         return (
             <div>
                 <h1>Hello React</h1>
+                <hr/>
                 {bookList}
             </div>
         );
@@ -32,4 +40,8 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps)(BookList);
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({getBooks: getBooks}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
