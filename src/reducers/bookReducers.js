@@ -21,11 +21,13 @@ export default function bookReducers (state = {books: [{
         break;
 
         case 'POST_BOOK':  
-            // add the new   book in the state.  
-            // Never  use push()methodbecause it is mutable
-            // we shouldnevermutate the state in redux 
-            // let books = state.books.concat(action.payload);
-            // we can also use the spread operator which creates copies
+            /**
+             * add the new book in the state.  
+             * Never use push()methodbecause it is mutable
+             * We should never mutate the state in redux 
+             * let books = state.books.concat(action.payload);
+             * We can also use the spread operator which creates copies
+             */
             return {books: [...state.books, ...action.payload]};
         break;
 
@@ -53,9 +55,11 @@ export default function bookReducers (state = {books: [{
             //console log the  book just to see how it looks like 
             console.log(newBook);
 
-            // now use slice to remove the  book at the given index 
-            // replace with the new book object 
-            // concatenatewith the  rest of the books  in the  state
+            /**
+             * now use slice to remove the  book at the given index 
+             * replace with the new book object 
+             * concatenatewith the  rest of the books  in the  state
+             */
 
             return {books: [...bookToUpdate.slice(0, bookIndexToUpdate), newBook, ...bookToUpdate.slice(bookIndexToUpdate + 1)]}
         break;
