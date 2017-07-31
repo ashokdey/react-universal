@@ -6,13 +6,35 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {bindActionCreators} from 'redux';
-import {removeFromCart} from 'cartActions';
+import {removeFromCart, addToCart} from 'cartActions';
 
 // import the style components 
 import {Panel, Col, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap';
 
 // create teh Cart component
 class Cart extends Component {
+
+    _increaseQuantity(_id){
+        /**
+         * Find the item in the cart with the given id 
+         * update the quantity value by 1
+         * Also update the price
+         */
+
+         const cartItems = this.props.cart;
+         const indexOfItem = cartItems.findIndex((item) => item._id === _id);
+         // update the quantity 
+         cartItems[indexOfItem].quantity = cartItems[indexOfItem].quantity + 1;
+         // get the latest quantity 
+         const quantity = cartItems[indexOfItem].quantity;
+
+         // update the price
+         cartItems[indexOfItem].price = cartItems[indexOfItem].price/(quantity - 1) * quantity;
+         
+         const cartAfterUpdate = cartItems;
+         this.props.addToCart(cartAfterUpdate);
+
+    }
 
     // custom method to handle deletion of items from the cart 
     _handleDelete(_id){
@@ -24,9 +46,9 @@ class Cart extends Component {
          * use slice() to remove items because it's an immutable function 
          */
 
-        const itemToDelete = this.props.cart;
-        const indexOfItem = itemToDelete.findIndex((item) => item._id === _id);
-        const cartAfterDelete = [...itemToDelete.slice(0, indexOfItem), ...itemToDelete.slice(indexOfItem + 1)];
+        const cartItems = this.props.cart;
+        const indexOfItem = cartItems.findIndex((item) => item._id === _id);
+        const cartAfterDelete = [...cartItems.slice(0, indexOfItem), ...cartItems.slice(indexOfItem + 1)];
 
         this.props.removeFromCart(cartAfterDelete);
     }
@@ -91,7 +113,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         // we can alsouse the ES6 short literal syntax since both names are same 
-        removeFromCart: removeFromCart
+        removeFromCart: removeFromCart,
+        addToCart: addToCart
+
     }, dispatch);
 }
 
