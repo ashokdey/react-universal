@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 /**
  * connect() will help us to take the statefrom Redux 
  * store and makeit available in our local component 
@@ -11,10 +11,13 @@ import {getBooks} from '../../actions/bookActions';
 import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 // Import other react components here 
-import Book from 'Book'
-import BookForm from 'BookForm'
+import Book from 'Book';
+import BookForm from 'BookForm';
+import Cart from 'Cart';
 
-class BookList extends React.Component {
+
+// create the BookList component to display the list of Books 
+class BookList extends Component {
 
     componentDidMount() {
         // Dispatching an Action
@@ -30,6 +33,9 @@ class BookList extends React.Component {
 
         return (
             <Grid>
+                <Row>
+                    <Cart/>
+                </Row>
                 <Row style={{marginTop: '15px'}}>
                     <Col xs={12} sm={6}>
                         <BookForm/>
