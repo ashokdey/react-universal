@@ -5,7 +5,10 @@ import React from 'react';
  */
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getBooks} from '../../actions/bookActions'
+import {getBooks} from '../../actions/bookActions';
+
+// Import react-bootstrap here 
+import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 class BookList extends React.Component {
 
@@ -20,16 +23,16 @@ class BookList extends React.Component {
                 <h1>{book.title}</h1>
                 <h2>{book.description}</h2>
                 <h2>{book.price}</h2>
-                <hr/>
+                <Button bsStyle="success">But Now</Button>
             </div>
         ));
 
         return (
-            <div>
-                <h1>Hello React</h1>
-                <hr/>
-                {bookList}
-            </div>
+            <Grid>
+                <Row style={{marginTop: '15px'}}>
+                    {bookList}
+                </Row>
+            </Grid>
         );
     }
 }
