@@ -24,10 +24,10 @@ const store = createStore(reducers, applyMiddleware(logger));
 
 store.subscribe(() => {
     console.log('Current state is : ', store.getState());
-    // capture the price of second book 
-    console.log('Current price of second book is : ', store.getState().books.books[1].price);    
-    // capture title of second book
-    console.log('Title of second book is : ', store.getState().books.books[1].title);    
+    // // capture the price of second book 
+    // console.log('Current price of second book is : ', store.getState().books.books[1].price);    
+    // // capture title of second book
+    // console.log('Title of second book is : ', store.getState().books.books[1].title);    
 });
 
 
