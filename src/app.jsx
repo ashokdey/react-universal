@@ -47,13 +47,13 @@ document.getElementById('app'));
 // Dispatching an object similar to a database record 
 // In real applications, there is generally  an array of objects in the payload
 // store.dispatch(postBook([{
-//         id: 1001,
+//         _id: 1001,
 //         title: 'Some Boook',
 //         description: 'A great demo book',
 //         price: 23.33
 //     },
 //     {
-//         id: 1002,
+//         _id: 1002,
 //         title: 'Some Other Boook',
 //         description: 'A second great demo book',
 //         price: 57.30
@@ -64,7 +64,7 @@ document.getElementById('app'));
 
 // Creating a book
 // store.dispatch(postBook([{
-//         id: 1003,
+//         _id: 1003,
 //         title: 'Third Book',
 //         description: 'Third Demo Book',
 //         price: 68.85
@@ -73,13 +73,13 @@ document.getElementById('app'));
 
 // // Deleting a book
 // store.dispatch(deleteBook([{
-//         id: 1001
+//         _id: 1001
 //     }]
 // ));
 
 // // Updating  a book 
 // store.dispatch(updateBook([{
-//         id: 1003,
+//         _id: 1003,
 //         title: 'Updated to Fantastic Book'
 //     }]
 // ));

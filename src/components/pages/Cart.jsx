@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 // import the style components 
-import {Panel, Col, Row, Well, Button} from 'react-bootstrap';
+import {Panel, Col, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap';
 
 // create teh Cart component
 class Cart extends Component {
@@ -22,11 +22,25 @@ class Cart extends Component {
     _renderCart() {
         // list of items in the cart 
         const cartItemsList = this.props.cart.map((item) => (
-            <Panel key={item.id}>
+            <Panel key={item._id}>
                 <Row>
                     <Col xs={12} sm={4}>
-                        <h3>{item.title}</h3>
+                        <h6>{item.title}</h6><span>  </span>
                     </Col>
+                    <Col xs={12} sm={2}>
+                        <h6>Rs. {item.price}</h6>
+                    </Col>
+                    <Col xs={12} sm={4}>
+                        <h6>Quantity <Label bsStyle="success"></Label></h6>
+                    </Col>
+                    <Col xs={6} sm={4}>
+                        <ButtonGroup style={{width: '300px'}}>
+                            <Button bsStyle="warning" bsSize="small">-</Button>
+                            <Button bsStyle="primary" bsSize="small">+</Button>
+                            <span>     </span>
+                            <Button bsStyle="danger" bsSize="small">Delete</Button>
+                        </ButtonGroup>
+                    </Col>                    
                 </Row>
             </Panel>
         ));

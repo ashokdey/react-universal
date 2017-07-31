@@ -26,14 +26,14 @@ class BookList extends Component {
 
     render() {
         const bookList = this.props.books.map((book) => (
-            <Col xs={12} sm={6} md={4} key={book.id}>
+            <Col xs={12} sm={6} md={4} key={book._id}>
                 <Book book={book} />
             </Col>
         ));
 
         return (
             <Grid>
-                <Row>
+                <Row style={{marginTop: '15px'}}>
                     <Cart/>
                 </Row>
                 <Row style={{marginTop: '15px'}}>
