@@ -12,6 +12,7 @@ import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 // Import other react components here 
 import Book from './Book.jsx'
+import BookForm from './BookForm.jsx'
 
 class BookList extends React.Component {
 
@@ -30,6 +31,9 @@ class BookList extends React.Component {
         return (
             <Grid>
                 <Row style={{marginTop: '15px'}}>
+                    <Col xs={12} sm={6}>
+                        <BookForm/>
+                    </Col>            
                     {bookList}
                 </Row>
             </Grid>
