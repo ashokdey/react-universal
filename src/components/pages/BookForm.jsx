@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Well, Panel, FormControl, FormGroup, ControlLabel, Button} from 'react-bootstrap';
+import {Well, Panel, FormControl, FormGroup, ControlLabel, Button, Row, Col} from 'react-bootstrap';
 // to get input from react-bootstrap we need to import findDOMNode from react-dom
 import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
@@ -32,46 +32,49 @@ class BookForm extends Component {
         ));
 
         return (
-            <Well>
-                <Panel>
-                    <FormGroup controlId="title">
-                        <ControlLabel>Title</ControlLabel>
-                        <FormControl
-                            type="text"
-                            placeholder="Enter Title"
-                            ref="title"
-                        />
-                    </FormGroup>
-                    <FormGroup controlId="description">
-                        <ControlLabel>Description</ControlLabel>
-                        <FormControl
-                            type="text"
-                            placeholder="Enter Description"
-                            ref="description"
-                        />
-                    </FormGroup>
-                    <FormGroup controlId="price">
-                        <ControlLabel>Price</ControlLabel>
-                        <FormControl
-                            type="text"
-                            placeholder="Enter Price"
-                            ref="price"
-                        />
-                    </FormGroup>
-                    <Button onClick={this._handleSubmit.bind(this)} bsStyle="primary">Add Book</Button>
-                </Panel>
-
-                <Panel style={{marginTop: '25px'}}>
-                    <FormGroup controlId="formControlSelect">
-                        <ControlLabel>Select a book title to delete</ControlLabel>
-                        <FormControl ref="deleteTitle" componentClass="select" placeholder="Select"> 
-                            <option value="Select">Select</option>
-                            {bookList}
-                        </FormControl>
-                    </FormGroup>
-                    <Button onClick={this._deleteBook.bind(this)} bsStyle="danger">Delete Book</Button>
-                </Panel>
-            </Well>
+            <Row style={{marginTop: '85px'}}>
+                <Col xs={12} sm={6} mdOffset={3} smOffset={3}>
+                    <Well>
+                        <Panel>
+                            <FormGroup controlId="title">
+                                <ControlLabel>Title</ControlLabel>
+                                <FormControl
+                                    type="text"
+                                    placeholder="Enter Title"
+                                    ref="title"
+                                />
+                            </FormGroup>
+                            <FormGroup controlId="description">
+                                <ControlLabel>Description</ControlLabel>
+                                <FormControl
+                                    type="text"
+                                    placeholder="Enter Description"
+                                    ref="description"
+                                />
+                            </FormGroup>
+                            <FormGroup controlId="price">
+                                <ControlLabel>Price</ControlLabel>
+                                <FormControl
+                                    type="text"
+                                    placeholder="Enter Price"
+                                    ref="price"
+                                />
+                            </FormGroup>
+                            <Button onClick={this._handleSubmit.bind(this)} bsStyle="primary">Add Book</Button>
+                        </Panel>
+                        <Panel style={{marginTop: '25px'}}>
+                            <FormGroup controlId="formControlSelect">
+                                <ControlLabel>Select a book title to delete</ControlLabel>
+                                <FormControl ref="deleteTitle" componentClass="select" placeholder="Select"> 
+                                    <option value="Select">Select</option>
+                                    {bookList}
+                                </FormControl>
+                            </FormGroup>
+                            <Button onClick={this._deleteBook.bind(this)} bsStyle="danger">Delete Book</Button>
+                        </Panel>
+                    </Well>
+                </Col>
+            </Row>
         );
     }
 }

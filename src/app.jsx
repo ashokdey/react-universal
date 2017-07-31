@@ -15,11 +15,10 @@ import {postBook, deleteBook, updateBook} from 'bookActions';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {BrowserRouter as Router, Route, } from 'react-router-dom';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 // custom components
-import Navigation from 'Navigation';
-import Footer from 'Footer';
+import Main from 'Main';
 import About from 'About';
 import Contact from 'Contact';
 import BookList from 'BookList';
@@ -39,21 +38,18 @@ store.subscribe(() => {
 
 
 // REACT Rendering here
-
-ReactDOM.render(
+const Routes = (
     <Provider store={store}>
-        <div>
-            <Router>
-                <div>
-                    <Route path="/" component={Navigation}/>
-                    <Route exact path="/" component={BookList}/>                    
-                    <Route path="/about" component={About}/>
-                    <Route path="/contact" component={Contact}/>
-                    <Route path="/cart" component={Cart}/>
-                    <Route path="/admin" component={BookForm}/>
-                    <Route path="/" component={Footer}/>                    
-                </div>
-            </Router>
-        </div>
-    </Provider>, 
-document.getElementById('app'));
+        <Router history={browserHistory}>
+            <Route path="/" component={Main}>
+                <IndexRoute component={BookList} />
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/admin" component={BookForm} />
+                <Route path="/cart" component={Cart} />
+            </Route>
+        </Router>
+    </Provider>
+);
+
+ReactDOM.render(Routes, document.getElementById('app'));

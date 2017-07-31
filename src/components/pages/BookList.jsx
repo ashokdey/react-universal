@@ -34,12 +34,8 @@ class BookList extends Component {
         return (
             <Grid>
                 <Row style={{marginTop: '15px'}}>
-                    <Cart/>
                 </Row>
-                <Row style={{marginTop: '15px'}}>
-                    <Col xs={12} sm={6}>
-                        <BookForm/>
-                    </Col>            
+                <Row style={{marginTop: '15px'}}>           
                     {bookList}
                 </Row>
             </Grid>
