@@ -8,8 +8,8 @@ import logger from 'redux-logger';
 import reducers from './reducers';
 
 // import actions 
-import {addToCart} from './actions/cartActions';
-import {postBook, deleteBook, updateBook} from './actions/bookActions';
+import {addToCart} from 'cartActions';
+import {postBook, deleteBook, updateBook} from 'bookActions';
 
 
 
