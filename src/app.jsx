@@ -1,17 +1,15 @@
 // Redux Stuffs
 import {createStore,applyMiddleware} from 'redux';
 
-//  import redux-logger
+// Import redux-logger to clean console logging
 import logger from 'redux-logger';
 
 // Import the combined reducers
 import reducers from './reducers';
 
-// import actions 
+// Import actions 
 import {addToCart} from 'cartActions';
 import {postBook, deleteBook, updateBook} from 'bookActions';
-
-
 
 // React Stuffs
 import React from 'react';
