@@ -5,14 +5,14 @@
 export default function bookReducers (state = {books: [{
         id: 1001,
         title: 'Some Boook',
-        description: 'A great demo book',
-        price: 33.33
+        description: 'First great demo book',
+        price: 233.33
     },
     {
         id: 1002,
         title: 'Some Other Boook',
-        description: 'A second great demo book',
-        price: 13.33
+        description: 'Second great demo book',
+        price: 313.33
     }]}, action) {
     
     switch(action.type) {
