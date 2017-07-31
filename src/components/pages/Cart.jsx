@@ -79,6 +79,12 @@ class Cart extends Component {
         return(
             <Panel header="Cart" bsStyle="primary">
                 {cartItemsList}
+                <Row>
+                    <Col xs={12}>
+                        <h4>Total Amount:</h4>
+                        <Button bsSize="small" bsStyle="success">Proceed To Checkout</Button>
+                    </Col>
+                </Row>
             </Panel>
         );
     }
