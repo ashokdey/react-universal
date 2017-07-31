@@ -31,6 +31,7 @@ module.exports = {
             BookForm: path.resolve(__dirname, 'src/components/pages/BookForm.jsx'),
             BookList: path.resolve(__dirname, 'src/components/pages/BookList.jsx'),
             Cart: path.resolve(__dirname, 'src/components/pages/Cart.jsx'),
+            Navigation: path.resolve(__dirname, 'src/components/Navigation.jsx'),
         }
     },
     devtool: 'cheap-module-eval-source-map',

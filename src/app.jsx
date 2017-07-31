@@ -17,8 +17,8 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 // custom components
-import BookList from './components/pages/BookList.jsx';
-import Navigation from './components/Navigation.jsx';
+import BookList from 'BookList';
+import Navigation from 'Navigation';
 
 
 // Create the store
