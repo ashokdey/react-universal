@@ -9,10 +9,29 @@ import {bindActionCreators} from 'redux';
 import {removeFromCart, updateCart} from 'cartActions';
 
 // import the style components 
-import {Panel, Col, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap';
+import {Panel, Col, Row, Well, Button, ButtonGroup, Label, Modal} from 'react-bootstrap';
 
 // create teh Cart component
 class Cart extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            showModal: false
+        }
+    }
+
+    _showModal(){
+        this.setState({
+            showModal: true
+        });
+    }
+
+    close(){
+        this.setState({
+            showModal: !this.state.showModal
+        });
+    }
 
     // custom method to handle increament of items in the cart     
     _increaseQuantity(_id){
@@ -63,7 +82,7 @@ class Cart extends Component {
                         <h4>Rs. {item.price}</h4>
                     </Col>
                     <Col xs={12} sm={4}>
-                        <h4>Quantity <Label bsStyle="success">{item.quantity}</Label></h4>
+                        <h4>Quantity <Label bsStyle="info">{item.quantity}</Label></h4>
                     </Col>
                     <Col xs={6} sm={4}>
                         <ButtonGroup style={{width: '300px'}}>
@@ -82,9 +101,20 @@ class Cart extends Component {
                 <Row>
                     <Col xs={12}>
                         <h4>Total Amount:</h4>
-                        <Button bsSize="small" bsStyle="success">Proceed To Checkout</Button>
+                        <Button onClick={this._showModal.bind(this)} bsSize="small" bsStyle="success">Proceed To Checkout</Button>
                     </Col>
                 </Row>
+                <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Modal Heading</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <h4>Testing</h4>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.close.bind(this)}>Close</Button>
+                    </Modal.Footer>
+                </Modal>
             </Panel>
         );
     }
