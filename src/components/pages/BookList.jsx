@@ -10,6 +10,9 @@ import {getBooks} from '../../actions/bookActions';
 // Import react-bootstrap here 
 import {Grid, Col, Row, Button} from 'react-bootstrap';
 
+// Import other react components here 
+import Book from './Book.jsx'
+
 class BookList extends React.Component {
 
     componentDidMount() {
@@ -19,12 +22,9 @@ class BookList extends React.Component {
 
     render() {
         const bookList = this.props.books.map((book) => (
-            <div key={book.id}>
-                <h1>{book.title}</h1>
-                <h2>{book.description}</h2>
-                <h2>{book.price}</h2>
-                <Button bsStyle="success">But Now</Button>
-            </div>
+            <Col xs={12} sm={6} md={4} key={book.id}>
+                <Book book={book} />
+            </Col>
         ));
 
         return (
