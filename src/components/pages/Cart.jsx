@@ -14,7 +14,7 @@ import {Panel, Col, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap
 // create teh Cart component
 class Cart extends Component {
 
-    // custom method to handle deleteion of items from the cart 
+    // custom method to handle deletion of items from the cart 
     _handleDelete(_id){
         /**
          * _id is the id of the cart item to be removed
@@ -45,18 +45,18 @@ class Cart extends Component {
             <Panel key={item._id}>
                 <Row>
                     <Col xs={12} sm={4}>
-                        <h6>{item.title}</h6><span>  </span>
+                        <h4>{item.title}</h4><span>  </span>
                     </Col>
                     <Col xs={12} sm={2}>
-                        <h6>Rs. {item.price}</h6>
+                        <h4>Rs. {item.price}</h4>
                     </Col>
                     <Col xs={12} sm={4}>
-                        <h6>Quantity <Label bsStyle="success"></Label></h6>
+                        <h4>Quantity <Label bsStyle="success">{item.quantity}</Label></h4>
                     </Col>
                     <Col xs={6} sm={4}>
                         <ButtonGroup style={{width: '300px'}}>
                             <Button bsStyle="warning" bsSize="small">-</Button>
-                            <Button bsStyle="primary" bsSize="small">+</Button>
+                            <Button onClick={this._increaseQuantity.bind(this, item._id)} bsStyle="primary" bsSize="small">+</Button>
                             <span>     </span>
                             <Button onClick={this._handleDelete.bind(this, item._id)} bsStyle="danger" bsSize="small">Delete</Button>
                         </ButtonGroup>

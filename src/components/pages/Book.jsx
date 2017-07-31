@@ -23,7 +23,8 @@ class Book extends Component{
          * this array will hold the items previously in the cart
          * and add the current book in the cart  as well  
          */
-        const book = [...this.props.cart, this.props.book]
+        const cartBook = {...this.props.book, quantity: 1};
+        const book = [...this.props.cart, cartBook];
         this.props.addToCart(book);
     }
 
