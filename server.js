@@ -11,7 +11,7 @@ const app = express();
 app.use(express.static('public'));
 
 // serve index.html at the root route 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.status(200).sendfile(path.resolve(__dirname, 'public', 'index.html'));
 });
 
