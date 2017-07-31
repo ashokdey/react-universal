@@ -41,6 +41,7 @@ ReactDOM.render(
         <div>
             <Navigation />
             <BookList />
+            <Footer />
         </div>
     </Provider>, 
 document.getElementById('app'));

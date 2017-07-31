@@ -1,7 +1,9 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 
 const Footer = () =>  (
-    <footer className="footer"> Copyrights &copy; {new Date().getFullYear() } || ReactUniversal ShoppingApp</footer>
+    <footer className="footer text-center" style={{marginTop: '50px'}}> 
+        Copyrights &copy; {new Date().getFullYear() } || ReactUniversal ShoppingApp
+    </footer>
 )
 
 export default Footer;

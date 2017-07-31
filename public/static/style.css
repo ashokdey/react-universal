@@ -16,3 +16,7 @@ body {
 .badge { 
     background-color: #e4aa48;
 }
+
+.footer {
+    font-weight: bold;
+}
