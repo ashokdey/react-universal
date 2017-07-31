@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // import dispatch action 'addToCart from cartActions
-import {addToCart} from 'cartActions';
+import {addToCart, updateCart} from 'cartActions';
 
 // import the style components
 import {Row, Col, Well, Button} from 'react-bootstrap';
@@ -25,7 +25,29 @@ class Book extends Component{
          */
         const cartBook = {...this.props.book, quantity: 1};
         const book = [...this.props.cart, cartBook];
-        this.props.addToCart(book);
+        
+        // check if cart is empty 
+        if (this.props.cart.length > 0) {
+            // if the cart is not ampty check if it already contains the similar item 
+            let _id = this.props.book._id;
+            let itemInCart = this.props.cart.findIndex((item) => item._id == _id);
+
+            /**
+             * if itemInCart is -1 which means there are no items similar to this
+             * simple add the item in the cart 
+             */
+
+            if(itemInCart == -1) {
+                this.props.addToCart(book);
+            }
+            else {
+                this.props.updateCart(_id, 1);
+            }
+        }
+        else {
+            // if the cart is empty then add the item to the cart 
+            this.props.addToCart(book);
+        }
     }
 
     render() {
@@ -52,7 +74,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        addToCart: addToCart
+        addToCart: addToCart,
+        updateCart: updateCart
     },dispatch);
 }
 

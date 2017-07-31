@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {bindActionCreators} from 'redux';
-import {removeFromCart, addToCart} from 'cartActions';
+import {removeFromCart, updateCart} from 'cartActions';
 
 // import the style components 
 import {Panel, Col, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap';
@@ -14,26 +14,14 @@ import {Panel, Col, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap
 // create teh Cart component
 class Cart extends Component {
 
+    // custom method to handle increament of items in the cart     
     _increaseQuantity(_id){
-        /**
-         * Find the item in the cart with the given id 
-         * update the quantity value by 1
-         * Also update the price
-         */
+         this.props.updateCart(_id, 1);
+    }
 
-         const cartItems = this.props.cart;
-         const indexOfItem = cartItems.findIndex((item) => item._id === _id);
-         // update the quantity 
-         cartItems[indexOfItem].quantity = cartItems[indexOfItem].quantity + 1;
-         // get the latest quantity 
-         const quantity = cartItems[indexOfItem].quantity;
-
-         // update the price
-         cartItems[indexOfItem].price = cartItems[indexOfItem].price/(quantity - 1) * quantity;
-         
-         const cartAfterUpdate = cartItems;
-         this.props.addToCart(cartAfterUpdate);
-
+    // custom method to handle decreament of items in the cart 
+    _decreaseQuantity(_id){
+        this.props.updateCart(_id, -1);
     }
 
     // custom method to handle deletion of items from the cart 
@@ -77,7 +65,7 @@ class Cart extends Component {
                     </Col>
                     <Col xs={6} sm={4}>
                         <ButtonGroup style={{width: '300px'}}>
-                            <Button bsStyle="warning" bsSize="small">-</Button>
+                            <Button onClick={this._decreaseQuantity.bind(this, item._id)} bsStyle="warning" bsSize="small">-</Button>
                             <Button onClick={this._increaseQuantity.bind(this, item._id)} bsStyle="primary" bsSize="small">+</Button>
                             <span>     </span>
                             <Button onClick={this._handleDelete.bind(this, item._id)} bsStyle="danger" bsSize="small">Delete</Button>
@@ -114,7 +102,7 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         // we can alsouse the ES6 short literal syntax since both names are same 
         removeFromCart: removeFromCart,
-        addToCart: addToCart
+        updateCart: updateCart
 
     }, dispatch);
 }
