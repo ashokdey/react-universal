@@ -18,7 +18,6 @@ import {Provider} from 'react-redux';
 import {BrowserRouter as Router, Route, } from 'react-router-dom';
 
 // custom components
-import Main from 'Main';
 import Navigation from 'Navigation';
 import Footer from 'Footer';
 import About from 'About';

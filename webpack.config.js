@@ -26,8 +26,7 @@ module.exports = {
             bookActions: path.resolve(__dirname, 'src/actions/bookActions.js'),            
             cartActions: path.resolve(__dirname, 'src/actions/cartActions.js'),            
 
-            // Components here 
-            Main: path.resolve(__dirname, 'src/components/Main.jsx'),            
+            // Components here          
             Book: path.resolve(__dirname, 'src/components/pages/Book.jsx'),
             BookForm: path.resolve(__dirname, 'src/components/pages/BookForm.jsx'),
             BookList: path.resolve(__dirname, 'src/components/pages/BookList.jsx'),
