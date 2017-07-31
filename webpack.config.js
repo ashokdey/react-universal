@@ -16,6 +16,14 @@ module.exports = {
             }
         ] 
     },
+    resolve: {
+        alias: {
+            Book: path.resolve(__dirname, 'src/components/pages/Book.jsx'),
+            BookForm: path.resolve(__dirname, 'src/components/pages/BookForm.jsx'),
+            BookList: path.resolve(__dirname, 'src/components/pages/BookList.jsx'),
+            Cart: path.resolve(__dirname, 'src/components/pages/Cart.jsx'),
+        }
+    },
     devtool: 'cheap-module-eval-source-map',
     watch: true
 }

@@ -11,8 +11,8 @@ import {getBooks} from '../../actions/bookActions';
 import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 // Import other react components here 
-import Book from './Book.jsx'
-import BookForm from './BookForm.jsx'
+import Book from 'Book'
+import BookForm from 'BookForm'
 
 class BookList extends React.Component {
 
