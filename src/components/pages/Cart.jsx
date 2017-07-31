@@ -27,7 +27,7 @@ class Cart extends Component {
         });
     }
 
-    close(){
+    _closeModal(){
         this.setState({
             showModal: !this.state.showModal
         });
@@ -104,7 +104,7 @@ class Cart extends Component {
                         <Button onClick={this._showModal.bind(this)} bsSize="small" bsStyle="success">Proceed To Checkout</Button>
                     </Col>
                 </Row>
-                <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
+                <Modal show={this.state.showModal} onHide={this._closeModal.bind(this)}>
                     <Modal.Header closeButton>
                         <Modal.Title>Modal Heading</Modal.Title>
                     </Modal.Header>
@@ -112,7 +112,7 @@ class Cart extends Component {
                         <h4>Testing</h4>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Button onClick={this.close.bind(this)}>Close</Button>
+                        <Button onClick={this._closeModal.bind(this)}>Close</Button>
                     </Modal.Footer>
                 </Modal>
             </Panel>
