@@ -3,11 +3,21 @@
 export default function cartReducers(state = {cart: []}, action) {
     switch (action.type) {
         case 'ADD_TO_CART':
-            return {cart: [...state, ...action.payload]}
+            return {
+                ...state, 
+                cart: action.payload,
+                totalAmount: calculateTotal(action.payload).amount,
+                totalQuantity: calculateTotal(action.payload).quantity
+            }
         break;
 
         case 'DELETE_ITEM':
-            return {cart: [...state, ...action.payload]}
+            return {
+                ...state,
+                cart: action.payload,
+                totalAmount: calculateTotal(action.payload).amount,
+                totalQuantity: calculateTotal(action.payload).quantity                
+            }
         break;
 
         case 'UPDATE_CART':
@@ -30,10 +40,26 @@ export default function cartReducers(state = {cart: []}, action) {
 
             return {
                 ...state,
-                cart: updatedCart
+                cart: updatedCart,
+                totalAmount: calculateTotal(updatedCart).amount,
+                totalQuantity: calculateTotal(updatedCart).quantity                
             }
         break;
     }
 
     return state;
+}
+
+
+// calculate total  amount 
+export function calculateTotal(cart) {
+    // calculate total amount 
+    const totalAmount = cart.map((item) => item.price * item.quantity).reduce((a, b) => a + b, 0);
+
+    //calculate total no of quantities
+    const totalQuantity = cart.map((item) => item.quantity).reduce((a, b) => a + b, 0); 
+    return {
+        amount: totalAmount.toFixed(2),
+        quantity: totalQuantity
+    }
 }
