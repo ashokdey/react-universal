@@ -4,8 +4,16 @@ import axios from 'axios';
 
 // get books
 export  function getBooks(book) {
-    return{
-        type: 'GET_BOOKS',
+    return function(dispatch) {
+        axios.get('/books')
+            .then((response) => dispatch({ 
+                type: 'GET_BOOKS',
+                payload: response.data
+            }))
+            .catch((err) => dispatch({
+                type: 'GET_BOOKS_REJECTED',
+                payload: err 
+            }));
     }
 }
 
