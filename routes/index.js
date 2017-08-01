@@ -1,9 +1,9 @@
 'use strict';
 
-const Router = require('express').Router();
+const BookRouter = require('express').Router();
 const Book = require('../models/bookModel');
 
-Router.route('/')
+BookRouter.route('/')
     .get((req, res) => {
         Book.find({})
             .then((data) => res.status(200).json(data))
@@ -18,7 +18,7 @@ Router.route('/')
             .catch((err) => console.log(err));
     });
 
-Router.route('/:id')
+BookRouter.route('/:id')
     .put((req, res) => {
         let book = req.body;
         let query = req.params.id;
@@ -53,4 +53,4 @@ Router.route('/:id')
             .catch((err) => res.status(500).json(err));
     });
 
-module.exports = Router;
+module.exports = BookRouter;
