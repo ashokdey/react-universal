@@ -1,3 +1,6 @@
+// require custom configuration file 
+const config = require('./config/config.js');
+
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -5,8 +8,10 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-const index = require('./routes/index');
-const users = require('./routes/users');
+// require the mongodb connection here 
+const {mongoose} = require('./db');
+
+
 
 const app = express();
 
