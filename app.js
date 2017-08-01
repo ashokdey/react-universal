@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // use the custom routes 
-app.use('/', BookRoutes);
+app.use('/books', BookRoutes);
 
 // replaced default with my own code from server.js
 app.get('*', (req, res) => {
