@@ -11,6 +11,9 @@ const bodyParser = require('body-parser');
 // require the mongodb connection here 
 const {mongoose} = require('./db');
 
+// require the routes file 
+const BookRoutes = require('./routes');
+
 // create the express app instance 
 const app = express();
 
@@ -21,6 +24,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// use the custom routes 
+app.use('/', BookRoutes);
 
 // replaced default with my own code from server.js
 app.get('*', (req, res) => {
