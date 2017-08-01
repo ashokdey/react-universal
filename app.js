@@ -1,5 +1,5 @@
 // require custom configuration file 
-const config = require('./config/config.js');
+const config = require('./config');
 
 const express = require('express');
 const path = require('path');
@@ -11,16 +11,11 @@ const bodyParser = require('body-parser');
 // require the mongodb connection here 
 const {mongoose} = require('./db');
 
-
-
+// create the express app instance 
 const app = express();
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
-
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
