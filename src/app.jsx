@@ -4,6 +4,9 @@ import {createStore,applyMiddleware} from 'redux';
 // Import redux-logger to clean console logging
 import logger from 'redux-logger';
 
+// import redux-thunk for delaying dispatch 
+import thunk from 'redux-thunk';
+
 // Import the combined reducers
 import reducers from './reducers';
 
@@ -26,7 +29,7 @@ import BookForm from 'BookForm';
 import Cart from 'Cart';
 
 // Create the store
-const store = createStore(reducers, applyMiddleware(logger));
+const store = createStore(reducers, applyMiddleware(thunk, logger));
 
 store.subscribe(() => {
     console.log('Current state is : ', store.getState());

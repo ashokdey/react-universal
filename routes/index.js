@@ -10,10 +10,11 @@ BookRouter.route('/')
             .catch((err) => res.status(500).json(err))
     })
     .post((req, res) => {
-        let book = req.body;
-        console.log(book);
+        // the body will always receive an array of books 
+        let bookArray = req.body;
+        console.log(bookArray);
         // save the book in DB
-        new Book(book).save()
+        Book.create(bookArray)
             .then((data) => res.status(200).json(data))
             .catch((err) => console.log(err));
     });
