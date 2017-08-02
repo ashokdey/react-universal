@@ -5,10 +5,41 @@ import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getBooks, postBook, deleteBook} from 'bookActions';
+import axios from 'axios';
 
 class BookForm extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            images: [{}],
+            imageName: '',
+            imageAddr: ''
+        }
+    }
+
     componentDidMount() {
-        this.props.getBooks();        
+        this.props.getBooks();
+        // request for the images from the API
+        axios.get('/api/images')
+            .then((response) => this.setState({
+                images: response.data
+            }))
+            .catch((err) => {
+                console.error('**ERROR in BookForm.jsx', err);
+                this.setState({
+                    imageName: '',
+                    imageAddr: '',
+                    images: []
+                });
+            });        
+    }
+
+    // custom method to handle the selection of image 
+    _handleImageSelect(imageName, imageAddr) {
+        this.setState({
+            imageName: imageName,
+            imageAddr: imageAddr
+        });
     }
 
     // custom function to call the dispatch action on submit of form
@@ -40,6 +71,15 @@ class BookForm extends Component {
             <option key={book._id} value={book._id}>{book.title}</option>
         ));
 
+        const imageList = this.state.images.map((imageObject, i) => (
+            <MenuItem 
+                key={i} 
+                eventKey={imageObject.name} 
+                onClick={this._handleImageSelect.bind(this, imageObject.name, imageObject.nameWithAddress)}
+                >
+                {imageObject.name}
+            </MenuItem>
+        ));
 
         return (
             <Row style={{marginTop: '85px'}}>
@@ -87,15 +127,17 @@ class BookForm extends Component {
                 <Col xs={10} xsOffset={1} sm={8} md={4} mdOffset={0} smOffset={2}>
                     <Panel>
                         <InputGroup>
-                            <FormControl type="text" />
+                            <FormControl type="text" ref="imageName" value={this.state.imageName}/>
                                 <DropdownButton
                                 componentClass={InputGroup.Button}
                                 id="input-dropdown-addon"
-                                title="Choose Image"
+                                title="Select an Image"
+                                bsStyle="primary"
                                 >
-                                    <MenuItem key="1">Item</MenuItem>
+                                    {imageList}
                                 </DropdownButton>
                         </InputGroup>
+                        <Image src={this.state.imageAddr} responsive style={{maxHeight: '500px', marginTop: '15px'}}/>
                     </Panel>
                 </Col>
             </Row>
