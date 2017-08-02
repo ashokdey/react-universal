@@ -35,13 +35,13 @@ class Cart extends Component {
 
     // custom method to handle increament of items in the cart     
     _increaseQuantity(_id){
-         this.props.updateCart(_id, 1);
+         this.props.updateCart(_id, 1, this.props.cart);
     }
 
     // custom method to handle decreament of items in the cart 
     _decreaseQuantity(_id, quantity){
         if(quantity > 1) {
-            this.props.updateCart(_id, -1);        
+            this.props.updateCart(_id, -1, this.props.cart);        
         }
     }
 
