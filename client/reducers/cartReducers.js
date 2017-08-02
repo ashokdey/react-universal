@@ -47,13 +47,22 @@ export default function cartReducers(state = {cart: []}, action) {
 
 // calculate total  amount 
 export function calculateTotal(cart) {
-    // calculate total amount 
-    const totalAmount = cart.map((item) => item.price * item.quantity).reduce((a, b) => a + b, 0);
+    
+    if(cart.length > 0) {
+        // calculate total amount 
+        const totalAmount = cart.map((item) => item.price * item.quantity).reduce((a, b) => a + b, 0);
 
-    //calculate total no of quantities
-    const totalQuantity = cart.map((item) => item.quantity).reduce((a, b) => a + b, 0); 
-    return {
-        amount: totalAmount.toFixed(2),
-        quantity: totalQuantity
+        //calculate total no of quantities
+        const totalQuantity = cart.map((item) => item.quantity).reduce((a, b) => a + b, 0); 
+        return {
+            amount: totalAmount.toFixed(2),
+            quantity: totalQuantity
+        }
+    }
+    else {
+        return {
+            amount: 0.00,
+            quantity: 0
+        }
     }
 }
