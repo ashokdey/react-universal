@@ -2,6 +2,21 @@
 // import  axios to make requests
 import axios from 'axios';
 
+// get cart 
+export function getCart() {
+    return function(dispatch) {
+        axios.get('/api/cart')
+            .then((response) => dispatch({
+                type:'GET_CART',
+                payload: response.data
+            }))
+            .catch((err) => dispatch({
+                type: 'GET_CART_REJECTED',
+                payload: err.message
+            }));
+    }
+} 
+
 // Add to cart
 export function addToCart(cart) {
     return function(dispatch) {

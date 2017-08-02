@@ -28,6 +28,9 @@ import BookList from 'BookList';
 import BookForm from 'BookForm';
 import Cart from 'Cart';
 
+// styled components from react-bootstrap
+import {Row,  Col} from 'react-bootstrap';
+
 // Create the store
 const store = createStore(reducers, applyMiddleware(thunk, logger));
 
@@ -38,7 +41,6 @@ store.subscribe(() => {
     // // capture title of second book
     // console.log('Title of second book is : ', store.getState().books.books[1].title);    
 });
-
 
 // REACT Rendering here
 const Routes = (

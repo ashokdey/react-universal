@@ -2,6 +2,15 @@
 
 export default function cartReducers(state = {cart: []}, action) {
     switch (action.type) {
+        case 'GET_CART':
+            return {
+                ...state, 
+                cart: action.payload,
+                totalAmount: calculateTotal(action.payload).amount,
+                totalQuantity: calculateTotal(action.payload).quantity
+            }
+        break;
+
         case 'ADD_TO_CART':
             return {
                 ...state, 

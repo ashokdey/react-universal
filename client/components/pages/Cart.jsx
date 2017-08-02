@@ -6,13 +6,17 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {bindActionCreators} from 'redux';
-import {removeFromCart, updateCart} from 'cartActions';
+import {getCart, removeFromCart, updateCart} from 'cartActions';
 
 // import the style components 
 import {Panel, Col, Row, Well, Button, ButtonGroup, Label, Modal} from 'react-bootstrap';
 
 // create teh Cart component
 class Cart extends Component {
+
+    componentDidMount(){
+        this.props.getCart();
+    }
 
     constructor(props){
         super(props);
@@ -145,8 +149,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         // we can alsouse the ES6 short literal syntax since both names are same 
-        removeFromCart: removeFromCart,
-        updateCart: updateCart
+        getCart,
+        removeFromCart,
+        updateCart
 
     }, dispatch);
 }
