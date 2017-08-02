@@ -6,7 +6,7 @@ const ImageRouter = require('express').Router();
 ImageRouter.route('/')
     .get((req, res) => {
         // store the path to image directory
-        const imageDir = path.resolve(__dirname, '../static/images');
+        const imageDir = path.resolve(__dirname, '../../public/static/images');
         // read all the images in the directory 
         fs.readdir(imageDir, (err, images) => {
             if(err) {
