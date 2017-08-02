@@ -2,7 +2,7 @@ const  path = require('path');
 const  webpack = require('webpack');
 
 module.exports = {
-    entry: './src/app.jsx',
+    entry: './client/app.jsx',
     output: {
         filename:'bundle.js',
         path:path.resolve(__dirname, 'public/static/')
@@ -19,23 +19,23 @@ module.exports = {
     resolve: {
         alias: {
             // reducers here 
-            bookReducers: path.resolve(__dirname, 'src/reducers/bookReducers.js'),
-            cartReducers: path.resolve(__dirname, 'src/reducers/cartReducers.js'),
+            bookReducers: path.resolve(__dirname, 'client/reducers/bookReducers.js'),
+            cartReducers: path.resolve(__dirname, 'client/reducers/cartReducers.js'),
 
             // actions here 
-            bookActions: path.resolve(__dirname, 'src/actions/bookActions.js'),            
-            cartActions: path.resolve(__dirname, 'src/actions/cartActions.js'),            
+            bookActions: path.resolve(__dirname, 'client/actions/bookActions.js'),            
+            cartActions: path.resolve(__dirname, 'client/actions/cartActions.js'),            
 
             // Components here          
-            Main: path.resolve(__dirname, 'src/components/Main.jsx'),            
-            Book: path.resolve(__dirname, 'src/components/pages/Book.jsx'),
-            BookForm: path.resolve(__dirname, 'src/components/pages/BookForm.jsx'),
-            BookList: path.resolve(__dirname, 'src/components/pages/BookList.jsx'),
-            Cart: path.resolve(__dirname, 'src/components/pages/Cart.jsx'),
-            About: path.resolve(__dirname, 'src/components/pages/About.jsx'),
-            Contact: path.resolve(__dirname, 'src/components/pages/Contact.jsx'),
-            Navigation: path.resolve(__dirname, 'src/components/Navigation.jsx'),
-            Footer: path.resolve(__dirname, 'src/components/Footer.jsx'),
+            Main: path.resolve(__dirname, 'client/components/Main.jsx'),            
+            Book: path.resolve(__dirname, 'client/components/pages/Book.jsx'),
+            BookForm: path.resolve(__dirname, 'client/components/pages/BookForm.jsx'),
+            BookList: path.resolve(__dirname, 'client/components/pages/BookList.jsx'),
+            Cart: path.resolve(__dirname, 'client/components/pages/Cart.jsx'),
+            About: path.resolve(__dirname, 'client/components/pages/About.jsx'),
+            Contact: path.resolve(__dirname, 'client/components/pages/Contact.jsx'),
+            Navigation: path.resolve(__dirname, 'client/components/Navigation.jsx'),
+            Footer: path.resolve(__dirname, 'client/components/Footer.jsx'),
         }
     },
     devtool: 'cheap-module-eval-source-map',
