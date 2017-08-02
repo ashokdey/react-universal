@@ -17,6 +17,11 @@ class BookForm extends Component {
             price: findDOMNode(this.refs.price).value,
         }];
         this.props.postBook(book);
+        
+        // clear the form
+        findDOMNode(this.refs.title).value = '';
+        findDOMNode(this.refs.description).value = '';
+        findDOMNode(this.refs.price).value = '';
     }
 
     // custom function to delete book 
