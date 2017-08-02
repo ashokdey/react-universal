@@ -49,6 +49,7 @@ class BookForm extends Component {
             title: findDOMNode(this.refs.title).value,
             description: findDOMNode(this.refs.description).value,
             price: findDOMNode(this.refs.price).value,
+            image: '/static/images/' + findDOMNode(this.refs.imageName).value
         }];
         this.props.postBook(book);
         
@@ -56,6 +57,7 @@ class BookForm extends Component {
         findDOMNode(this.refs.title).value = '';
         findDOMNode(this.refs.description).value = '';
         findDOMNode(this.refs.price).value = '';
+        findDOMNode(this.refs.imageName).value = '';
     }
 
     // custom function to delete book 

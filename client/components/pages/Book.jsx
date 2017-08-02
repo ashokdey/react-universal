@@ -11,7 +11,7 @@ import {bindActionCreators} from 'redux';
 import {addToCart, updateCart} from 'cartActions';
 
 // import the style components
-import {Row, Col, Well, Button} from 'react-bootstrap';
+import {Row, Col, Well, Button, Image} from 'react-bootstrap';
 
 // create the Book component to display single book 
 class Book extends Component{
@@ -55,6 +55,7 @@ class Book extends Component{
             <Well>
                 <Row>
                     <Col xs={12}>
+                        <Image src={this.props.book.image} responsive />
                         <h2>{this.props.book.title}</h2>
                         <p>{this.props.book.description}</p>
                         <h3>Rs. {this.props.book.price}</h3>

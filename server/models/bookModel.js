@@ -12,7 +12,7 @@ const bookSchema = mongoose.Schema({
         trim: true,
         minlength: 5,
     },
-    images: {
+    image: {
         type: String
     },
     price: {

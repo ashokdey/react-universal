@@ -19,7 +19,7 @@ class Navigation extends Component {
             <Navbar inverse fixedTop>
                 <Navbar.Header>
                 <Navbar.Brand>
-                    <a href="/">ReactUniversalShoppingApp</a>
+                    <a href="/">ShoppingApp</a>
                 </Navbar.Brand>
                 <Navbar.Toggle />
                 </Navbar.Header>
