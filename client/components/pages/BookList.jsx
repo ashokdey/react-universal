@@ -33,8 +33,8 @@ class BookList extends Component {
 
         return (
             <Grid>
-                 <Row style={{marginTop: '15px'}}>
-                    <Col xs={12} sm={6}>
+                 <Row style={{marginTop: '-55px'}}>
+                    <Col  xs={12} sm={8} smOffset={2} md={6} mdOffset={3}>
                         <Cart/>
                     </Col>
                 </Row> 

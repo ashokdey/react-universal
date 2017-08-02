@@ -100,30 +100,34 @@ class Cart extends Component {
             </Panel>
         ), this);
         return(
-            <Panel header="Cart" bsStyle="primary">
-                {cartItemsList}
-                <Row>
-                    <Col xs={12}>
-                        <h4>Total Amount: Rs. {this.props.totalAmount}</h4>
-                        <Button onClick={this._showModal.bind(this)} bsSize="small" bsStyle="success">Proceed To Checkout</Button>
-                    </Col>
-                </Row>
-                <Modal show={this.state.showModal} onHide={this._closeModal.bind(this)}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Thank You</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        <h4>Your Order has been confirmed</h4>
-                        <p>You'll receive an email containing order and shipping details. </p>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Col xs={6}>
-                            <h4>Total : Rs. {this.props.totalAmount} </h4> 
-                        </Col>
-                        <Button bsStyle="danger" onClick={this._closeModal.bind(this)}>Close</Button>
-                    </Modal.Footer>
-                </Modal>
-            </Panel>
+            <Row>
+                <Col>
+                        <Panel header="Cart" bsStyle="primary"  style={{marginTop:'100px'}}>
+                            {cartItemsList}
+                            <Row>
+                                <Col xs={12}>
+                                    <h4>Total Amount: Rs. {this.props.totalAmount}</h4>
+                                    <Button onClick={this._showModal.bind(this)} bsSize="small" bsStyle="success">Proceed To Checkout</Button>
+                                </Col>
+                            </Row>
+                            <Modal show={this.state.showModal} onHide={this._closeModal.bind(this)}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Thank You</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>
+                                    <h4>Your Order has been confirmed</h4>
+                                    <p>You'll receive an email containing order and shipping details. </p>
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Col xs={6}>
+                                        <h4>Total : Rs. {this.props.totalAmount} </h4> 
+                                    </Col>
+                                    <Button bsStyle="danger" onClick={this._closeModal.bind(this)}>Close</Button>
+                                </Modal.Footer>
+                            </Modal>
+                        </Panel>
+                </Col>
+            </Row>
         );
     }
 
