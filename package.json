@@ -4,9 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./server/bin/www | node ./server/apiServer.js || node ./server/bin/www && node ./server/apiServer.js",
-    "server": "node ./server/bin/www",
-    "proxy": "node ./server/apiServer.js",
-    "dev": "webpack -p"
+    "mongod": "mongod --dbpath=\"C:/Users/007/mongo-db/\"",
+    "webpack": "webpack -p"
   },
   "keywords": [],
   "author": "Ashok-Dey",
