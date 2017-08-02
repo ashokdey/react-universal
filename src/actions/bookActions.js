@@ -36,7 +36,7 @@ export function postBook(book) {
 // delete a book
 export function deleteBook(_id) {
     return function(dispatch) {
-        axios.delete(`/books/:${_id}`)
+        axios.delete(`/books/${_id}`)
             .then((response) => dispatch({
                 type: 'DELETE_BOOK',
                 payload: _id
