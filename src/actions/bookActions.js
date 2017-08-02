@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 // get books
-export  function getBooks(book) {
+export function getBooks(book) {
     return function(dispatch) {
         axios.get('/books')
             .then((response) => dispatch({ 
@@ -18,7 +18,7 @@ export  function getBooks(book) {
 }
 
 // post a book
-export  function postBook(book) {
+export function postBook(book) {
     // return a function 
     return function(dispatch) {
         axios.post('/books', book)
@@ -34,7 +34,7 @@ export  function postBook(book) {
 }
 
 // delete a book
-export  function deleteBook(_id) {
+export function deleteBook(_id) {
     return function(dispatch) {
         axios.delete(`/books/:${_id}`)
             .then((response) => dispatch({
@@ -49,7 +49,7 @@ export  function deleteBook(_id) {
 }
 
 // update a book
-export  function updateBook(book) {
+export function updateBook(book) {
     return{
         type: 'UPDATE_BOOK',
         payload: book

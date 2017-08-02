@@ -4,9 +4,12 @@ import {Well, Panel, FormControl, FormGroup, ControlLabel, Button, Row, Col} fro
 import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {postBook, deleteBook} from 'bookActions';
+import {getBooks, postBook, deleteBook} from 'bookActions';
 
 class BookForm extends Component {
+    componentDidMount() {
+        this.props.getBooks();        
+    }
 
     // custom function to call the dispatch action on submit of form
     _handleSubmit() {
@@ -18,7 +21,7 @@ class BookForm extends Component {
         }];
         this.props.postBook(book);
         
-        // clear the form
+        // clear the form fields
         findDOMNode(this.refs.title).value = '';
         findDOMNode(this.refs.description).value = '';
         findDOMNode(this.refs.price).value = '';
@@ -27,14 +30,17 @@ class BookForm extends Component {
     // custom function to delete book 
     _deleteBook() {
         let _id = findDOMNode(this.refs.deleteTitle).value;
+        console.log('**DELETING: ', _id);
         this.props.deleteBook(parseInt(_id));
     }
 
     render() {
+        const books = this.props.books;
         // book list that maps to the list of books 
-        const bookList = this.props.books.map((book) => (
+        const bookList = books.map((book) => (
             <option key={book._id} value={book._id}>{book.title}</option>
         ));
+
 
         return (
             <Row style={{marginTop: '85px'}}>
@@ -92,6 +98,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
+        getBooks,
         postBook, 
         deleteBook
     }, dispatch);

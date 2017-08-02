@@ -50,7 +50,9 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({getBooks: getBooks}, dispatch);
+    return bindActionCreators({
+        getBooks
+    }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
