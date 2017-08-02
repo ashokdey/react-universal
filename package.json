@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node .server/bin/www",
+    "start": "node ./server/bin/www",
     "dev": "webpack -p"
   },
   "keywords": [],
