@@ -54,7 +54,7 @@ class Book extends Component{
         return(
             <Well>
                 <Row>
-                    <Col xs={12}>
+                    <Col xs={12} sm={12} md={12}>
                         <Image src={this.props.book.image} responsive />
                         <h2>{this.props.book.title}</h2>
                         <p>{this.props.book.description}</p>
