@@ -1,7 +1,6 @@
 'use strict';
 
 const CartRouter = require('express').Router();
-const Book = require('../models/bookModel');
 
 CartRouter.route('/')
     .get((req, res) => {
