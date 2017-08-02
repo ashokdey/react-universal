@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Well, Panel, FormControl, FormGroup, ControlLabel, Button, Row, Col} from 'react-bootstrap';
+import {Well, Panel, FormControl, FormGroup, ControlLabel, Button, Row, Col, InputGroup, DropdownButton, Image, MenuItem} from 'react-bootstrap';
 // to get input from react-bootstrap we need to import findDOMNode from react-dom
 import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
@@ -43,7 +43,7 @@ class BookForm extends Component {
 
         return (
             <Row style={{marginTop: '85px'}}>
-                <Col xs={12} sm={6} mdOffset={3} smOffset={3}>
+                <Col xs={10} xsOffset={1} sm={8} md={6} mdOffset={1} smOffset={2}>
                     <Well>
                         <Panel>
                             <FormGroup controlId="title">
@@ -83,6 +83,20 @@ class BookForm extends Component {
                             <Button onClick={this._deleteBook.bind(this)} bsStyle="danger">Delete Book</Button>
                         </Panel>
                     </Well>
+                </Col>
+                <Col xs={10} xsOffset={1} sm={8} md={4} mdOffset={0} smOffset={2}>
+                    <Panel>
+                        <InputGroup>
+                            <FormControl type="text" />
+                                <DropdownButton
+                                componentClass={InputGroup.Button}
+                                id="input-dropdown-addon"
+                                title="Choose Image"
+                                >
+                                    <MenuItem key="1">Item</MenuItem>
+                                </DropdownButton>
+                        </InputGroup>
+                    </Panel>
                 </Col>
             </Row>
         );
