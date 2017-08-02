@@ -16,12 +16,14 @@ CartRouter.route('/')
         // set the session 
         req.session.cart = cart;
         // save the cart in the session
-        req.session.save()
-            .then((data) => res.status(200).json(req.session.cart))
-            .catch((err) => {
+        req.session.save(function(err){
+            if(err) {
                 console.log(err);
                 res.status(500).json({error: 'Some error occured'});
-            });
+            }
+
+            res.status(200).json(req.session.cart)
+        });
     });
 
 
