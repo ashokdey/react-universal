@@ -30,8 +30,7 @@ class BookForm extends Component {
     // custom function to delete book 
     _deleteBook() {
         let _id = findDOMNode(this.refs.deleteTitle).value;
-        console.log('**DELETING: ', _id);
-        this.props.deleteBook(parseInt(_id));
+        this.props.deleteBook(_id);
     }
 
     render() {
