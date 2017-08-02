@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./server/bin/www",
+    "start": "node ./server/bin/www | node ./server/apiServer.js || node ./server/bin/www && node ./server/apiServer.js",
+    "server": "node ./server/bin/www",
+    "proxy": "node ./server/apiServer.js",
     "dev": "webpack -p"
   },
   "keywords": [],
@@ -16,7 +18,6 @@
     "debug": "~2.6.3",
     "express": "~4.15.2",
     "http-proxy": "^1.16.2",
-    "jade": "~1.11.0",
     "mongoose": "^4.11.5",
     "morgan": "~1.8.1",
     "prop-types": "^15.5.10",

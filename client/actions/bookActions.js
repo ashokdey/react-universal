@@ -5,7 +5,7 @@ import axios from 'axios';
 // get books
 export function getBooks(book) {
     return function(dispatch) {
-        axios.get('/books')
+        axios.get('/api/books')
             .then((response) => dispatch({ 
                 type: 'GET_BOOKS',
                 payload: response.data
@@ -21,7 +21,7 @@ export function getBooks(book) {
 export function postBook(book) {
     // return a function 
     return function(dispatch) {
-        axios.post('/books', book)
+        axios.post('/api/books', book)
             .then((response) => dispatch({
                 type: 'POST_BOOK',
                 payload: response.data
@@ -36,7 +36,7 @@ export function postBook(book) {
 // delete a book
 export function deleteBook(_id) {
     return function(dispatch) {
-        axios.delete(`/books/${_id}`)
+        axios.delete(`/api/books/${_id}`)
             .then((response) => dispatch({
                 type: 'DELETE_BOOK',
                 payload: _id

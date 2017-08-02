@@ -5,28 +5,32 @@ const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-
-// require the mongodb connection here 
-const {mongoose} = require('./db');
-
+// require the proxy package 
+const httpProxy = require('http-proxy');
 // require the routes file 
 const BookRoutes = require('./routes');
 
 // create the express app instance 
 const app = express();
 
+// create proxy to the API server 
+const apiProxy = httpProxy.createProxyServer({
+  target: 'http://localhost:3001',
+  changeOrigin: true
+});
+
+//middleware to serve the proxy 
+app.use('/api', function(req, res) {
+  apiProxy.web(req,res);
+});
+
+
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, '../public', 'favicon.png')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
-// use the custom routes 
-app.use('/books', BookRoutes);
+
 
 // replaced default with my own code from server.js
 app.get('*', (req, res) => {
