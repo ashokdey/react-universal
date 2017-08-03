@@ -39,6 +39,5 @@ module.exports = {
             Slider: path.resolve(__dirname, 'client/components/Slider.jsx'),            
         }
     },
-    devtool: 'cheap-module-eval-source-map',
-    watch: true
+    devtool: 'cheap-module-eval-source-map'
 }

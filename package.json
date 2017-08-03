@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./server/bin/www | node ./server/apiServer.js || node ./server/bin/www && node ./server/apiServer.js",
     "mongod": "mongod --dbpath=\"C:/Users/007/mongo-db/\"",
-    "webpack": "webpack -p"
+    "webpack": "webpack -w",
+    "web-p": "webpack -p"
   },
   "keywords": [],
   "author": "Ashok-Dey",
