@@ -52,10 +52,12 @@ class Book extends Component{
 
     render() {
         return(
-            <Well style={{maxHeight: '700px', minHeight: '700px'}}>
+            <Well style={{maxHeight: '350px', minHeight: '350px'}}>
                 <Row>
-                    <Col xs={12} sm={12} md={12}>
-                        <Image src={this.props.book.image} responsive style={{height: '350px', width: '300px'}} />
+                    <Col xs={12} sm={6}>
+                        <Image src={this.props.book.image} responsive/>
+                    </Col>
+                    <Col xs={12} sm={6} md={6}>
                         <h2>{this.props.book.title}</h2>
                         <p>{this.props.book.description}</p>
                         <h3>Rs. {this.props.book.price}</h3>
