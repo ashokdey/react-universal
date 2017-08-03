@@ -9,7 +9,7 @@ import {bindActionCreators} from 'redux';
 import {getCart, removeFromCart, updateCart} from 'cartActions';
 
 // import the style components 
-import {Panel, Col, Row, Well, Button, ButtonGroup, Label, Modal} from 'react-bootstrap';
+import {Panel, Col, Row, Well, Button, ButtonGroup, Label, Modal, Image} from 'react-bootstrap';
 
 // create teh Cart component
 class Cart extends Component {
@@ -81,6 +81,7 @@ class Cart extends Component {
                 <Row>
                     <Col xs={12} sm={4}>
                         <h4>{item.title}</h4><span>  </span>
+                        <Image src={item.image} responsive/>
                     </Col>
                     <Col xs={12} sm={2}>
                         <h4>Rs. {item.price}</h4>
@@ -95,7 +96,7 @@ class Cart extends Component {
                             <span>     </span>
                             <Button onClick={this._handleDelete.bind(this, item._id)} bsStyle="danger" bsSize="small">Delete</Button>
                         </ButtonGroup>
-                    </Col>                    
+                    </Col>                   
                 </Row>
             </Panel>
         ), this);

@@ -19,12 +19,14 @@ class Book extends Component{
     // custom function to call the 'addToCart()' action
     _handleBuy() {
         /**
-         * Create a book arraya
+         * Create a book array
          * this array will hold the items previously in the cart
          * and add the current book in the cart  as well  
          */
+        // cartBook is the book to be added 
         const cartBook = {...this.props.book, quantity: 1};
-        const book = [...this.props.cart, cartBook];
+        // 
+        const allBooks = [...this.props.cart, cartBook];
         
         // check if cart is empty 
         if (this.props.cart.length > 0) {
@@ -38,7 +40,7 @@ class Book extends Component{
              */
 
             if(itemInCart == -1) {
-                this.props.addToCart(book);
+                this.props.addToCart(allBooks);
             }
             else {
                 this.props.updateCart(_id, 1, this.props.cart);
@@ -46,7 +48,7 @@ class Book extends Component{
         }
         else {
             // if the cart is empty then add the item to the cart 
-            this.props.addToCart(book);
+            this.props.addToCart(allBooks);
         }
     }
 
