@@ -36,6 +36,7 @@ module.exports = {
             Contact: path.resolve(__dirname, 'client/components/pages/Contact.jsx'),
             Navigation: path.resolve(__dirname, 'client/components/Navigation.jsx'),
             Footer: path.resolve(__dirname, 'client/components/Footer.jsx'),
+            Slider: path.resolve(__dirname, 'client/components/Slider.jsx'),            
         }
     },
     devtool: 'cheap-module-eval-source-map',

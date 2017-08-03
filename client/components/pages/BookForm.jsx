@@ -49,7 +49,7 @@ class BookForm extends Component {
             title: findDOMNode(this.refs.title).value,
             description: findDOMNode(this.refs.description).value,
             price: findDOMNode(this.refs.price).value,
-            image: '/static/images/' + findDOMNode(this.refs.imageName).value
+            image: '/static/images/books' + findDOMNode(this.refs.imageName).value
         }];
         this.props.postBook(book);
         

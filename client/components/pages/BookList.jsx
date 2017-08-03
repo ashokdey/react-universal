@@ -14,6 +14,7 @@ import {Grid, Col, Row, Button} from 'react-bootstrap';
 import Book from 'Book';
 import BookForm from 'BookForm';
 import Cart from 'Cart';
+import Slider from 'Slider';
 
 
 // create the BookList component to display the list of Books 
@@ -33,11 +34,9 @@ class BookList extends Component {
 
         return (
             <Grid>
-                {/* <Row>
-                    <Col  xs={12} sm={10} smOffset={1} md={10} mdOffset={1}>
-                        <Cart style={{marginTop: '-55px'}}/>
-                    </Col>
-                </Row> */}
+                <Row>
+                    <Slider/>
+                </Row>
                 <Row style={{marginTop: '45px'}}>           
                     <Col md={12} >
                         {bookList}                    
