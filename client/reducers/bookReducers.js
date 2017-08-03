@@ -17,11 +17,11 @@ export default function bookReducers (state = {books: []}, action) {
              * let books = state.books.concat(action.payload);
              * We can also use the spread operator which creates copies
              */
-            return {...state, books: [...state.books, ...action.payload], msg: 'Saved! Click to continue', style:'success'};
+            return {...state, books: [...state.books, ...action.payload], msg: 'Saved! Click to continue', style:'success', validation: 'success'};
         break;
 
         case 'POST_BOOK_REJECTED':  
-            return {...state, msg: 'Please, try agian', style: 'danger'};
+            return {...state, msg: 'Please, try agian', style: 'danger', validation: 'error'};
         break;
 
         case 'DELETE_BOOK':
@@ -58,7 +58,7 @@ export default function bookReducers (state = {books: []}, action) {
         break;
 
         case 'RESET_FORM':  
-            return {...state, msg: null, style: 'primary'};
+            return {...state, msg: null, style: 'primary', validation: null};
         break;
     }
     return state;
