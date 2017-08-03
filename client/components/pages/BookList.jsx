@@ -11,10 +11,10 @@ import {getBooks} from '../../actions/bookActions';
 import {Grid, Col, Row, Button} from 'react-bootstrap';
 
 // Import other react components here 
-import Book from 'Book';
-import BookForm from 'BookForm';
-import Cart from 'Cart';
-import Slider from 'Slider';
+import Book from './Book.jsx';
+import BookForm from './BookForm.jsx';
+import Cart from './Cart.jsx';
+import Slider from '../Slider.jsx';
 
 
 // create the BookList component to display the list of Books 

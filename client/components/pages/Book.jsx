@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 // import dispatch action 'addToCart from cartActions
-import {addToCart, updateCart} from 'cartActions';
+import {addToCart, updateCart} from '../../actions/cartActions';
 
 // import the style components
 import {Row, Col, Well, Button, Image} from 'react-bootstrap';

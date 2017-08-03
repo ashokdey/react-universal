@@ -3,12 +3,12 @@ import React from 'react';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 // custom components
-import Main from 'Main';
-import About from 'About';
-import Contact from 'Contact';
-import BookList from 'BookList';
-import BookForm from 'BookForm';
-import Cart from 'Cart';
+import Main from './components/Main.jsx';
+import About from './components/pages/About.jsx';
+import Contact from './components/pages/Contact.jsx';
+import BookList from './components/pages/BookList.jsx';
+import BookForm from './components/pages/BookForm.jsx';
+import Cart from './components/pages/Cart.jsx';
 
 // styled components from react-bootstrap
 import {Row,  Col} from 'react-bootstrap';

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Nav, NavItem, Navbar, Badge} from 'react-bootstrap';
 
 // import getCart  from cartAction 
-import {getCart} from 'cartActions';
+import {getCart} from '../actions/cartActions';
 
 import {connect} from 'react-redux';
 

@@ -4,7 +4,7 @@ import {Well, Panel, FormControl, FormGroup, ControlLabel, Button, Row, Col, Inp
 import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getBooks, postBook, deleteBook, resetForm} from 'bookActions';
+import {getBooks, postBook, deleteBook, resetForm} from '../../actions/bookActions';
 import axios from 'axios';
 
 class BookForm extends Component {
