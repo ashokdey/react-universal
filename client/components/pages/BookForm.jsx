@@ -49,7 +49,7 @@ class BookForm extends Component {
             title: findDOMNode(this.refs.title).value,
             description: findDOMNode(this.refs.description).value,
             price: findDOMNode(this.refs.price).value,
-            image: '/static/images/books' + findDOMNode(this.refs.imageName).value
+            image: '/static/images/books/' + findDOMNode(this.refs.imageName).value
         }];
         this.props.postBook(book);
         
@@ -112,7 +112,12 @@ class BookForm extends Component {
                                     ref="price"
                                 />
                             </FormGroup>
-                            <Button onClick={this._handleSubmit.bind(this)} bsStyle="primary">Add Book</Button>
+                            <Button 
+                                onClick={this._handleSubmit.bind(this)} 
+                                bsStyle={(!this.props.style)?('primary'):(this.props.style)}
+                                >
+                                {(!this.props.msg)?('Add Book'):(this.props.msg)}
+                            </Button>
                         </Panel>
                         <Panel style={{marginTop: '25px'}}>
                             <FormGroup controlId="formControlSelect">
@@ -149,7 +154,9 @@ class BookForm extends Component {
 
 function mapStateToProps(state) {
     return {
-        books: state.books.books
+        books: state.books.books,
+        msg: state.books.msg,
+        style: state.books.style
     }
 }
 

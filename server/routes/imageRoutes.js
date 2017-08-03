@@ -17,7 +17,7 @@ ImageRouter.route('/')
             // fill the array with the file names 
             images.forEach((imageFile) => imageArray.push({
                 name: imageFile,
-                nameWithAddress: `/static/images/${imageFile}`
+                nameWithAddress: `/static/images/books/${imageFile}`
             }));
 
             // return as json response all the files
