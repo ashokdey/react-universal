@@ -15,6 +15,19 @@ import {Row, Col, Well, Button, Image} from 'react-bootstrap';
 
 // create the Book component to display single book 
 class Book extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            readMore: false
+        }
+    }
+
+    // custom method to handle the readMore link in the book description
+    _handleReadMore() {
+        this.setState({
+            readMore: !this.state.readMore
+        });
+    }
 
     // custom function to call the 'addToCart()' action
     _handleBuy() {
@@ -61,7 +74,25 @@ class Book extends Component{
                     </Col>
                     <Col xs={12} sm={6} md={6}>
                         <h2>{this.props.book.title}</h2>
-                        <p>{this.props.book.description}</p>
+                        {/* 
+                            conditionally render the description, 
+                            initially  only show 50 chars 
+                        */}
+                        <p>
+                            {
+                                (this.props.book.description.length > 50 && this.state.readMore == false)
+                                ?(this.props.book.description.substring(0, 40))
+                                :(this.props.book.description)
+                            }
+
+                            <button className="read-more-btn" onClick={this._handleReadMore.bind(this)}>
+                                {
+                                    (this.state.readMore == false 
+                                    && this.props.book.description !== null
+                                    && this.props.book.description.length > 40 )?('read more...'):('read less...')
+                                }
+                            </button>
+                        </p>
                         <h3>Rs. {this.props.book.price}</h3>
                         <Button onClick={this._handleBuy.bind(this)} bsStyle="primary">Buy Now</Button>
                     </Col>

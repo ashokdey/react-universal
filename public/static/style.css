@@ -21,3 +21,13 @@ body {
     font-weight: bold;
     margin-top: 130px;
 }
+
+button.read-more-btn {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 3;
+    outline: none;
+    outline-offset: 0;
+    color: seagreen;
+}
