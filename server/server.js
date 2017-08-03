@@ -36,6 +36,8 @@ app.use(favicon(path.join(__dirname, '../public', 'favicon.png')));
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
+// set views folder location
+app.set('views', path.resolve(__dirname, './views'));
 
 // set ejs as view engine 
 app.set('view engine', 'ejs');
