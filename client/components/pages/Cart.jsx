@@ -79,14 +79,14 @@ class Cart extends Component {
         const cartItemsList = this.props.cart.map((item) => (
             <Panel key={item._id}>
                 <Row>
-                    <Col xs={12} sm={4}>
+                    <Col xs={12} sm={3}>
                         <h4>{item.title}</h4><span>  </span>
                         <Image src={item.image} responsive/>
                     </Col>
                     <Col xs={12} sm={2}>
                         <h4>Rs. {item.price}</h4>
                     </Col>
-                    <Col xs={12} sm={4}>
+                    <Col xs={12} sm={3}>
                         <h4>Quantity <Label bsStyle="info">{item.quantity}</Label></h4>
                     </Col>
                     <Col xs={6} sm={4}>
