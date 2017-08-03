@@ -11,7 +11,7 @@ import BookForm from './components/pages/BookForm.jsx';
 import Cart from './components/pages/Cart.jsx';
 
 // styled components from react-bootstrap
-import {Row,  Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 
 // custom cart 
 const CustomCart = () => (
@@ -23,7 +23,7 @@ const CustomCart = () => (
 ) 
 
 // REACT Rendering here
-const ClientRoutes = (
+const ClientRoutes =  (
     <Router history={browserHistory}>
         <Route path="/" component={Main}>
             <IndexRoute component={BookList} />

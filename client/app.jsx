@@ -7,8 +7,8 @@ import thunk from 'redux-thunk';
 // Import the combined reducers
 import reducers from './reducers';
 // Import actions 
-import {addToCart} from 'cartActions';
-import {postBook, deleteBook, updateBook} from 'bookActions';
+import {addToCart} from './actions/cartActions';
+import {postBook, deleteBook, updateBook} from './actions/bookActions';
 // React Stuffs
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -16,7 +16,7 @@ import {Provider} from 'react-redux';
 /**
  * IMPORTANT: Import the routes module from ClientRoutes.jsx
  */
- import ClientRoutes from './ClientRoutes.jsx';
+import ClientRoutes from './ClientRoutes.jsx';
 
 // create the middlewares 
 const middlewares = applyMiddleware(thunk, logger);
@@ -35,21 +35,12 @@ store.subscribe(() => {
     // console.log('Title of second book is : ', store.getState().books.books[1].title);    
 });
 
-// custom cart 
-
-const CustomCart = () => (
-    <Row>
-        <Col  xs={10} xsOffset={1} sm={8} smOffset={2} md={6} mdOffset={3}>
-            <Cart/>
-        </Col>
-    </Row>
-) 
 
 // REACT Rendering here
 const Routes = (
     <Provider store={store}>
-        <ClientRoutes/>
+        {ClientRoutes}
     </Provider>
-);
+)
 
 ReactDOM.render(Routes, document.getElementById('app'));
