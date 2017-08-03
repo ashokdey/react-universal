@@ -24,6 +24,30 @@ function handleRender(req, res){
 
             // STEP 3 : implemet react-router onthe server to intercept client request and define what to do with them 
 
+            const Routes = {
+                routes: ClientRoutes,
+                location: req.url
+            }
+
+            match(Routes, function(err, redirect, props){
+                if(err) {
+                    res.status(500).send('Error fullfilling the request');
+                }
+                else if(redirect) {
+                    res.status(302, redirect.pathname, redirect.search);
+                }
+                else if(props) {
+                    const reactComponent = renderToString(
+                        <Provider store={store}>
+                            <RouterContext {...props} />
+                        </Provider>
+                    );
+                    res.status(200).render('index', {reactComponent, initalState});
+                }
+                else {
+                    res.status(404).send('Page not found');
+                }
+            });
 
 
         })

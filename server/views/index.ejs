@@ -12,9 +12,8 @@
     <title> Shopping App | Universal React + Redux</title>
 </head>
 <body>
-    <div id="app">
-      <% myHtml %>
-    </div>
+    <div id="app"><%- reactComponent -%></div>
+    <script>window.INITIAL_STATE = <%- initalState -%></script>
     <script src="static/bundle.js"></script>
 </body>
 </html>
