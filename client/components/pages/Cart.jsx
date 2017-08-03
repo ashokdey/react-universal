@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {bindActionCreators} from 'redux';
-import {getCart, removeFromCart, updateCart} from 'cartActions';
+import {getCart, removeFromCart, updateCart} from '../../actions/cartActions';
 
 // import the style components 
 import {Panel, Col, Row, Well, Button, ButtonGroup, Label, Modal, Image} from 'react-bootstrap';

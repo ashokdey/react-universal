@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Navigation from 'Navigation';
-import Footer from 'Footer';
+import Navigation from './Navigation.jsx';
+import Footer from './Footer.jsx';
 
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getCart} from 'cartActions';
+import {getCart} from '../actions/cartActions';
 
 
 
