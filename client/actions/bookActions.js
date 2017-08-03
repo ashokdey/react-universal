@@ -55,3 +55,11 @@ export function updateBook(book) {
         payload: book
     }
 }
+
+// reset form buttons and messages 
+// update a book
+export function resetForm() {
+    return{
+        type: 'RESET_FORM'
+    }
+}

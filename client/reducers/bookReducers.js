@@ -56,6 +56,10 @@ export default function bookReducers (state = {books: []}, action) {
 
             return {books: [...bookToUpdate.slice(0, bookIndexToUpdate), newBook, ...bookToUpdate.slice(bookIndexToUpdate + 1)]}
         break;
+
+        case 'RESET_FORM':  
+            return {...state, msg: null, style: 'primary'};
+        break;
     }
     return state;
 }

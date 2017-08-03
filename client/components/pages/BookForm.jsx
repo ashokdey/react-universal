@@ -4,7 +4,7 @@ import {Well, Panel, FormControl, FormGroup, ControlLabel, Button, Row, Col, Inp
 import {findDOMNode} from 'react-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getBooks, postBook, deleteBook} from 'bookActions';
+import {getBooks, postBook, deleteBook, resetForm} from 'bookActions';
 import axios from 'axios';
 
 class BookForm extends Component {
@@ -52,12 +52,22 @@ class BookForm extends Component {
             image: '/static/images/books/' + findDOMNode(this.refs.imageName).value
         }];
         this.props.postBook(book);
-        
+    }
+
+    // custom method to  clear the form 
+    _resetForm() {
         // clear the form fields
         findDOMNode(this.refs.title).value = '';
         findDOMNode(this.refs.description).value = '';
         findDOMNode(this.refs.price).value = '';
         findDOMNode(this.refs.imageName).value = '';
+        this.setState({
+            imageName: '',
+            imageAddr: ''
+        });
+
+        // reset the form button by dispatching the action
+        this.props.resetForm();
     }
 
     // custom function to delete book 
@@ -113,12 +123,15 @@ class BookForm extends Component {
                                 />
                             </FormGroup>
                             <Button 
-                                onClick={this._handleSubmit.bind(this)} 
+                                onClick={(!this.props.msg)?(this._handleSubmit.bind(this)):(this._resetForm.bind(this))} 
                                 bsStyle={(!this.props.style)?('primary'):(this.props.style)}
                                 >
                                 {(!this.props.msg)?('Add Book'):(this.props.msg)}
                             </Button>
                         </Panel>
+                        {/* 
+                            Panel to  delete book  
+                        */}
                         <Panel style={{marginTop: '25px'}}>
                             <FormGroup controlId="formControlSelect">
                                 <ControlLabel>Select a book title to delete</ControlLabel>
@@ -131,6 +144,9 @@ class BookForm extends Component {
                         </Panel>
                     </Well>
                 </Col>
+                {/* 
+                    image select form element 
+                */}
                 <Col xs={10} xsOffset={1} sm={8} md={4} mdOffset={0} smOffset={2}>
                     <Panel>
                         <InputGroup>
@@ -164,7 +180,8 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({
         getBooks,
         postBook, 
-        deleteBook
+        deleteBook,
+        resetForm
     }, dispatch);
 }
 
