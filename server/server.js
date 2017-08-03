@@ -1,3 +1,8 @@
+// using ES6 on the server by requireing babel and giving presets 
+require('babel-core/register')({
+  "presets": ["react", "es2015", "stage-0"]
+});
+
 // require custom configuration file 
 const config = require('./config');
 
@@ -7,8 +12,9 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 // require the proxy package 
 const httpProxy = require('http-proxy');
-// require the routes file 
-const BookRoutes = require('./routes');
+
+//require the request handler 
+const requestHandler = require('./requestHandler');
 
 // create the express app instance 
 const app = express();
@@ -31,11 +37,11 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, '../public')));
 
 
+// set ejs as view engine 
+app.set('view engine', 'ejs');
 
-// replaced default with my own code from server.js
-app.get('*', (req, res) => {
-    res.status(200).sendFile(path.resolve(__dirname, '../public', 'index.html'));
-});
+// use custom middleware to handle requests
+app.use(requestHandler);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
