@@ -20,44 +20,44 @@ import Slider from '../Slider.jsx';
 // create the BookList component to display the list of Books 
 class BookList extends Component {
 
-    componentDidMount() {
-        // Dispatching an Action
-        this.props.getBooks();
-    }
+  componentDidMount() {
+    // Dispatching an Action
+    this.props.getBooks();
+  }
 
-    render() {
-        const bookList = this.props.books.map((book) => (
-            <Col xs={12} sm={8} md={6} key={book._id}>
-                <Book book={book} />
-            </Col>
-        ));
+  render() {
+    const bookList = this.props.books.map((book) => (
+      <Col xs={12} sm={8} md={6} key={book._id}>
+        <Book book={book} />
+      </Col>
+    ));
 
-        return (
-            <Grid>
-                <Row>
-                    <Slider/>
-                </Row>
-                <Row style={{marginTop: '45px'}}>           
-                    <Col md={12} >
-                        {bookList}                    
-                    </Col>
-                    
-                </Row>
-            </Grid>
-        );
-    }
+    return (
+      <Grid>
+        <Row>
+          <Slider/>
+        </Row>
+        <Row style={{marginTop: '45px'}}>           
+          <Col md={12} >
+            {bookList}                    
+          </Col>
+          
+        </Row>
+      </Grid>
+    );
+  }
 }
 
 function mapStateToProps(state){
-    return {
-        books : state.books.books
-    }
+  return {
+    books : state.books.books
+  }
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({
-        getBooks
-    }, dispatch);
+  return bindActionCreators({
+    getBooks
+  }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);

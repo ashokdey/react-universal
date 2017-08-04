@@ -10,34 +10,34 @@ import {bindActionCreators} from 'redux';
 
 
 class Navigation extends Component {
-    componentDidMount() {
-        this.props.getCart();
-    }
+  componentDidMount() {
+    this.props.getCart();
+  }
  
-    render(){
-        return (
-            <Navbar inverse fixedTop>
-                <Navbar.Header>
-                <Navbar.Brand>
-                    <a href="/">ShoppingApp</a>
-                </Navbar.Brand>
-                <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
-                <Nav>
-                    <NavItem eventKey={1} href="/about">About</NavItem>
-                    <NavItem eventKey={2} href="/contact">Contact</NavItem>
-                </Nav>
-                <Nav pullRight>
-                    <NavItem eventKey={1} href="/admin">Admin</NavItem>
-                    <NavItem eventKey={2} href="/cart">
-                        Your Cart <Badge className="badge">{this.props.cartItems}</Badge>
-                    </NavItem>
-                </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-        );
-    }
+  render(){
+    return (
+      <Navbar inverse fixedTop>
+        <Navbar.Header>
+        <Navbar.Brand>
+          <a href="/">ShoppingApp</a>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+        <Nav>
+          <NavItem eventKey={1} href="/about">About</NavItem>
+          <NavItem eventKey={2} href="/contact">Contact</NavItem>
+        </Nav>
+        <Nav pullRight>
+          <NavItem eventKey={1} href="/admin">Admin</NavItem>
+          <NavItem eventKey={2} href="/cart">
+            Your Cart <Badge className="badge">{this.props.cartItems}</Badge>
+          </NavItem>
+        </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    );
+  }
 } 
 
 // function mapStateToProps(state) {
@@ -47,9 +47,9 @@ class Navigation extends Component {
 // }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({
-        getCart
-    }, dispatch);
+  return bindActionCreators({
+    getCart
+  }, dispatch);
 }
 
 

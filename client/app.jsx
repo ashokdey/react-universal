@@ -28,19 +28,19 @@ const initialState =  window.INITIAL_STATE;
 const store = createStore(reducers, initialState, middlewares);
 
 store.subscribe(() => {
-    console.log('Current state is : ', store.getState());
-    // // capture the price of second book 
-    // console.log('Current price of second book is : ', store.getState().books.books[1].price);    
-    // // capture title of second book
-    // console.log('Title of second book is : ', store.getState().books.books[1].title);    
+  console.log('Current state is : ', store.getState());
+  // // capture the price of second book 
+  // console.log('Current price of second book is : ', store.getState().books.books[1].price);    
+  // // capture title of second book
+  // console.log('Title of second book is : ', store.getState().books.books[1].title);    
 });
 
 
 // REACT Rendering here
 const Routes = (
-    <Provider store={store}>
-        {ClientRoutes}
-    </Provider>
+  <Provider store={store}>
+  {ClientRoutes}
+  </Provider>
 )
 
 ReactDOM.render(Routes, document.getElementById('app'));

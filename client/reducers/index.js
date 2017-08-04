@@ -6,6 +6,6 @@ import cartReducers from './cartReducers';
 
 // combining the reducers
 export default combineReducers({
-    books: bookReducers,
-    cart: cartReducers
+  books: bookReducers,
+  cart: cartReducers
 });
