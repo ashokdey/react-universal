@@ -7,7 +7,7 @@
 <br/>
 
 * Uses **React** both in Client-Side and Server-Side
-* Uses **Redux** to manage staes
+* Uses **Redux** to manage states
 * Uses **Server-side React** rendering which makes the app an Isomorphic JavaScript App
 * Uses **Node + Express** as backend
 * Uses **MongoDB** for persisting data
@@ -22,7 +22,9 @@
 * Run _**npm start**_ - to start **NodeJS Server**
 * Go to [http://localhost:3000](http://localhost:3000) - To  see the app running
 
-There is one more NPM command _**npm run webpack**_ to run webpack while you're makingchanges in the client app
+There is one more NPM command _**npm run webpack**_ to run webpack while you're makingchanges in the client app.
+
+#### Note: Please change the location of your MongoDB path for windows at line #7 in [package.json](./package.json)
 
 ##  Branches 
 
