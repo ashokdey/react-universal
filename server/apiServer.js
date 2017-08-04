@@ -27,13 +27,13 @@ app.use(cookieParser());
 
 //middleware to capture user sessions and save in mongoDB
 app.use(session({
-    secret: 'anyrandomsecretstring',
-    saveUninitialized: false,
-    resave: false,
-    cookie: {maxAge: 1000 * 60 * 60 * 24 * 2},
-    store: new MongoStore({mongooseConnection: mongoose.connection, ttl: 2 * 24 * 60 * 60})
-    // mongooseConnection is the DB connection variable, mongoose in our case 
-    // ttl is time to leave which is 2 days expressed in terms of seconds 
+  secret: 'anyrandomsecretstring',
+  saveUninitialized: false,
+  resave: false,
+  cookie: {maxAge: 1000 * 60 * 60 * 24 * 2},
+  store: new MongoStore({mongooseConnection: mongoose.connection, ttl: 2 * 24 * 60 * 60})
+  // mongooseConnection is the DB connection variable, mongoose in our case 
+  // ttl is time to leave which is 2 days expressed in terms of seconds 
 }))
 
 // use the custom routes 
