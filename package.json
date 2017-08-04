@@ -6,7 +6,7 @@
     "start": "node ./server/bin/www | node ./server/apiServer.js || node ./server/bin/www && node ./server/apiServer.js",
     "mongod": "mongod --dbpath=\"C:/Users/007/mongo-db/\"",
     "webpack": "webpack -w",
-    "webpack-p": "webpack -p"
+    "wp": "webpack -p"
   },
   "engines": {
     "node": "8.2.1"

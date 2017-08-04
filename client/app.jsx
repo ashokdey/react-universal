@@ -1,7 +1,6 @@
 // Redux Stuffs
 import {createStore,applyMiddleware} from 'redux';
-// Import redux-logger to clean console logging
-import logger from 'redux-logger';
+
 // import redux-thunk for delaying dispatch 
 import thunk from 'redux-thunk';
 // Import the combined reducers
@@ -19,7 +18,7 @@ import {Provider} from 'react-redux';
 import ClientRoutes from './ClientRoutes.jsx';
 
 // create the middlewares 
-const middlewares = applyMiddleware(thunk, logger);
+const middlewares = applyMiddleware(thunk);
 
 // Create the store
 // IMPORTANT: We'll pass the Initial Statefrom the server store
