@@ -36,8 +36,9 @@ There are currently 2 more branches in this repo apart from the _**master**_ bra
 
 ### TODO:
 
-* Try to reduce the bundle size
-* Will be working on the production version of this app
+* ~~Try to reduce the bundle size~~
+* ~~Will be working on the production version of this app~~
+* Contents for About and Contact Pages
 * Convert it into a PWA
 
 ### Contributors are welcome 
