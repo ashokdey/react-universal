@@ -32,6 +32,7 @@ There are currently 2 more branches in this repo apart from the _**master**_ bra
  
 * **client-app** : Contains the react-redux app before converting it into an Isomophic app
 * **universal-app** : Contains the universal react app with server side rendering
+* **production** : Contains the production build configs for webpack and removal of console logs
 
 ### TODO:
 
