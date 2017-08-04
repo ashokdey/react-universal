@@ -8,6 +8,9 @@
     "webpack": "webpack -w",
     "web-p": "webpack -p"
   },
+  "engines": {
+    "node": "8.2.1"
+  },
   "keywords": [],
   "author": "Ashok-Dey",
   "license": "MIT",
