@@ -1,14 +1,17 @@
 # Universal React App 
 
-* ### Uses Redux to manage staes
-* ### Server-side React rendering made the app an Isomorphic JavaScript App
-* ### Uses Node + Express as backend
-* ### MongoDB for persisting data
-* ### Latest version of Webpack for bundling and transpiling React and ES6
+#### Live Here: _[https://reactuniversal.herokuapp.com](https://reactuniversal.herokuapp.com)_
 
 ![Logo of Tech Used](./assets/graphic_by_me.png) 
 
 <br/>
+
+* Uses **React** both in Client-Side and Server-Side
+* Uses **Redux** to manage staes
+* Uses **Server-side React** rendering which makes the app an Isomorphic JavaScript App
+* Uses **Node + Express** as backend
+* Uses **MongoDB** for persisting data
+* Latest version of **Webpack** for bundling and transpiling React and ES6
 
 
 ## How to use this app?
@@ -27,3 +30,13 @@ There are currently 2 more branches in this repo apart from the _**master**_ bra
  
 * **client-app** : Contains the react-redux app before converting it into an Isomophic app
 * **universal-app** : Contains the universal react app with server side rendering
+
+### TODO:
+
+* Try to reduce the bundle size
+* Will be working on the production version of this app
+* Convert it into a PWA
+
+### Contributors are welcome 
+
+Since I am very new to React and Universal React apps I would like to learn more therefore opening issues and contributions are welcome. Just drop me a mails here: _[ashokdey100@gmail.com](#)_
