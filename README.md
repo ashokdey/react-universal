@@ -6,10 +6,7 @@
 * ### MongoDB for persisting data
 * ### Latest version of Webpack for bundling and transpiling React and ES6
 
-![React Logo](./assets/react.png) + 
-![Redux Logo](./assets/redux.png) +
-![NodeJS Logo](./assets/node.png) +
-![MongoDB Logo](./assets/mongo.png)
+![Logo of Tech Used](./assets/graphic_by_me.png) 
 
 <br/>
 
