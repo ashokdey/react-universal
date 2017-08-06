@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
 import {Nav, NavItem, Navbar, Badge} from 'react-bootstrap';
 import {LinkContainer} from 'react-router-bootstrap';
-
 // import getCart  from cartAction 
 import {getCart} from 'cartActions';
-
 import {connect} from 'react-redux';
-
 import {bindActionCreators} from 'redux';
 
 
 class Navigation extends Component {
   componentDidMount() {
-  this.props.getCart();
+    this.props.getCart();
   }
  
   render(){
@@ -51,18 +48,10 @@ class Navigation extends Component {
   }
 } 
 
-// function mapStateToProps(state) {
-//     return {
-
-//     }
-// }
-
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
   getCart
   }, dispatch);
 }
-
-
 
 export default connect(null, mapDispatchToProps)(Navigation);
