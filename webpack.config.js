@@ -30,6 +30,10 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      // using preact and preactt-compact instead of react and react-dom
+      // react: 'preact-compat',
+      // 'react-dom': 'preact-compat',
+      
       // reducers here 
       bookReducers: path.resolve(__dirname, 'client/reducers/bookReducers.js'),
       cartReducers: path.resolve(__dirname, 'client/reducers/cartReducers.js'),
